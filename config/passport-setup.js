@@ -3,6 +3,17 @@ var GithubStrategy = require('passport-github2').Strategy;
 var authConfig = require(process.cwd() + '/config/auth');
 var User = require(process.cwd() + '/models/model');
 
+//serializeUser()/deserializeUser()
+passport.serializeUser(function (user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function (id, done) {
+  User.findById(id).then(function (user) {
+    done(null, user);
+  });
+});
+
 //Set up passport Middleware
 passport.use(
   new GithubStrategy({
@@ -21,6 +32,7 @@ passport.use(
           }
 
           if (user) {
+            console.log(user);
             return done(null, user);
           } else {
             var newUser = new User();
@@ -29,8 +41,12 @@ passport.use(
             newUser.username = profile.username;
             newUser.displayName = profile.displayName;
 
-            newUser.save().then(function(newUser) {
-              console.log(newUser);
+            newUser.save(function (err, newUser) {
+              if (err) { 
+                throw err;
+              }
+
+              return done(null, newUser);
             });
           }
         });
