@@ -13,7 +13,13 @@ routes.get('/logout', function (req, res) {
 });
 
 //Auth/google route handler
-routes.get('/google', passport.authenticate('google', { scope: ['profile'] }));
+routes.get('/github', passport.authenticate('github', { scope: [ 'user:email' ] }));
+
+//Redirect route
+routes.get('/github/callback', passport.authenticate('github', { failureRedirect: '/login'}),
+function (req, res) {
+  res.redirect('/');
+});
 
 module.exports = routes;
 
