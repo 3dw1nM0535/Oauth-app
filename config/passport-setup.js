@@ -1,15 +1,15 @@
 var passport = require('passport'); 
-var GoogleStrategy = require('passport-google-oauth2').Strategy;
+var GithubStrategy = require('passport-github2').Strategy;
 var authConfig = require(process.cwd() + '/config/auth');
 
 //Set up passport Middleware
 passport.use(
-  new GoogleStrategy({
-    clientSecret: 'authConfig.google.clientSecret',
-    clientID: 'authConfig.google.clientID',
-    callbackUrl: '/auth/google/redirect'
+  new GithubStrategy({
+    clientSecret: authConfig.github.clientSecret,
+    clientID: authConfig.github.clientID,
+    callbackURL: 'http://localhost:3000/auth/github/callback'
   },
-  function () {
-
+  function (accessToken, refreshToken, profile,done) {
+    console.log(profile);
   })
 );
