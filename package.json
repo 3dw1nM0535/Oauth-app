@@ -9,11 +9,10 @@
   "author": "Edwin Moses",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^4.0.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "passport": "^0.4.0",
-    "passport-google-oauth2": "^0.1.6",
+    "passport-github2": "^0.1.11",
     "semantic-ui": "^2.2.13"
   }
 }
