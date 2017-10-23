@@ -1,5 +1,9 @@
 //Define IIEF function(Immediately Invoked Function)
 
 (function() {
-  $('.push').css('margin-top', '5rem');
+
+  $('.lead').css({
+    'font-size': '3rem'
+  });
+
 })();
