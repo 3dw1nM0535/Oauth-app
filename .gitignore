@@ -1,5 +1,5 @@
 node_modules/
 semantic/
 semantic.json
-auth.js
+auth.js*
 npm-debug.log
