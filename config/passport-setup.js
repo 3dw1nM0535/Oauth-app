@@ -1,6 +1,6 @@
 var passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
-var authConfig = require(process.cwd() + '/config/auth');
+var authConfig = require(process.cwd() + '/config/keys');
 var User = require(process.cwd() + '/models/model');
 
 //serializeUser()/deserializeUser()
@@ -25,23 +25,22 @@ passport.use(
       //console.log(profile); //Console.log() output to the console
       process.nextTick(function() {
         User.findOne({
-          'id': profile.id
+          '_id': profile.id
         }, function(err, user) {
           if (err) {
             throw err;
           }
 
           if (user) {
-            console.log(user);
             return done(null, user);
           } else {
             var newUser = new User();
 
-            newUser.id = profile.id;
+            newUser._id = profile.id;
             newUser.username = profile.username;
             newUser.displayName = profile.displayName;
 
-            newUser.save(function (err, newUser) {
+            newUser.save(function (err) {
               if (err) { 
                 throw err;
               }
