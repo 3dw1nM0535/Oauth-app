@@ -12,6 +12,10 @@ mongoose.connect(keys.mongodb.dburi, {
 
 var app = express(); //instantiate express object
 
+//passport Middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 app.use('/auth', authRoutes);
 
