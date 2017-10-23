@@ -4,5 +4,8 @@ module.exports = {
   github: {
     clientID: '77e8e85b5cb596ad3d59',
     clientSecret: 'b947f516e8fd74a530e9ae1ffdc14a9e81b4d3f3'
+  },
+  mongodb: {
+    dburi: 'mongodb://github:47479031@ds151062.mlab.com:51062/todo'
   }
 };
