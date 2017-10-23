@@ -1,4 +1,4 @@
-var passport = require('passport'); 
+var passport = require('passport');
 var GithubStrategy = require('passport-github2').Strategy;
 var authConfig = require(process.cwd() + '/config/auth');
 
@@ -10,6 +10,6 @@ passport.use(
     callbackURL: 'http://localhost:3000/auth/github/callback'
   },
   function (accessToken, refreshToken, profile,done) {
-    console.log(profile);
+    console.log(profile); //Console.log() output to the console
   })
 );
