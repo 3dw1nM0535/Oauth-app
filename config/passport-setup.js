@@ -12,14 +12,28 @@ passport.use(
     },
     function(accessToken, refreshToken, profile, done) {
       //console.log(profile); //Console.log() output to the console
-      var newUser = new User();
+      process.nextTick(function() {
+        User.findOne({
+          'id': profile.id
+        }, function(err, user) {
+          if (err) {
+            throw err;
+          }
 
-      newUser.id = profile.id;
-      newUser.username = profile.username;
-      newUser.displayName = profile.displayName;
+          if (user) {
+            return done(null, user);
+          } else {
+            var newUser = new User();
 
-      newUser.save().then(function(newUser) {
-        console.log(newUser);
+            newUser.id = profile.id;
+            newUser.username = profile.username;
+            newUser.displayName = profile.displayName;
+
+            newUser.save().then(function(newUser) {
+              console.log(newUser);
+            });
+          }
+        });
       });
     })
 );
