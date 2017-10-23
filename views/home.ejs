@@ -1,45 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>GitHub Authentication App</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width initial-scale=1, shrink-to-fit=no" />
-    <link rel="stylesheet" href="/semantic/dist/semantic.css" />
-    <link rel="stylesheet" href="/public/css/main.css" />
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/semantic/dist/semantic.js"></script>
-  </head>
-  <body>
-  
-    <!-- Nav menu -->
 
-    <div class="ui fixed inverted menu">
-      <div class="ui container">
-        <div class="header item">
-          GitHub Auth App
-        </div>
-        <a class="item" href="/">
+<head>
+  <title>GitHub Authentication App</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width initial-scale=1, maximum-scale=1" />
+  <link rel="stylesheet" href="/semantic/dist/semantic.css" />
+  <link rel="stylesheet" href="/public/css/main.css" />
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/semantic/dist/semantic.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Nav menu -->
+
+  <div class="ui inverted menu">
+    <div class="ui container">
+      <div class="header item">
+        GitHub Auth App
+      </div>
+      <a class="item" href="/">
           Home
         </a>
-        <a class="item" href="/auth/login">
+      <a class="item" href="/auth/login">
           Login
         </a>
-        <div class="right menu">
-          <a class="item" href="/auth/logout">
+      <div class="right menu">
+        <a class="item" href="/auth/logout">
             Logout
           </a>
-        </div>
       </div>
     </div>
+  </div>
 
-    <div class="ui main center aligned text container">
-      <h1 class="ui inverted header">
-         GitHub Auth App
-      </h1>
-      <h2>GitHub Strategy Authentication</h2>
-      <a class="ui huge primary button" href="/auth/github">Get Started with GitHub</a>
+  <!-- Body Element -->
+  <div class="ui center aligned container">
+    <div class="sixteen wide column">
+      <p class="lead">
+        GitHub Authentication App
+      </p>
+      <a class="ui huge primary button" href="/auth/login">Get Stated with GithHub Oauth</a>
     </div>
-  
-  </body>
-</html>
+  </div>
 
+  <script type="text/javascript" src="/controllers/clientHandler.js"></script>
+</body>
+
+</html>
