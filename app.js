@@ -1,6 +1,9 @@
 var express = require('express'); //import express module
+var authRoutes = require(process.cwd() + '/routes/auth-routes');
 
 var app = express(); //instantiate express object
+
+app.use('/auth', authRoutes);
 
 //Static files Middleware
 app.use('/public', express.static(process.cwd() + '/public'));
