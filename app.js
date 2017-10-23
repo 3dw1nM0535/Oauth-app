@@ -2,6 +2,7 @@ var express = require('express'); //import express module
 var authRoutes = require(process.cwd() + '/routes/auth-routes');
 
 var app = express(); //instantiate express object
+require('dotenv').config();
 
 app.use('/auth', authRoutes);
 
