@@ -1,6 +1,13 @@
 var express = require('express'); //import express module
 var authRoutes = require(process.cwd() + '/routes/auth-routes');
 var passportSetup = require(process.cwd() + '/config/passport-setup');
+var mongoose = require('mongoose');
+var keys = require(process.cwd() + '/config/auth');
+mongoose.connect(keys.mongodb.dburi, {
+  useMongoClient: true
+}, function() {
+  console.log('Connected to mongodb successfully!');
+});
 
 var app = express(); //instantiate express object
 
