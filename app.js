@@ -10,13 +10,14 @@ app.use('/auth', authRoutes);
 app.use('/public', express.static(process.cwd() + '/public'));
 app.use('/config', express.static(process.cwd() + '/config'));
 app.use('/semantic', express.static(process.cwd() + '/semantic'));
+app.use('/controllers', express.static(process.cwd() + '/controllers'));
 
 //set view Middleware
 app.set('views', process.cwd() + '/views');
 app.set('view engine', 'ejs');
 
 //get home route
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
   res.render('home');
 });
 
