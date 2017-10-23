@@ -3,7 +3,6 @@ var authRoutes = require(process.cwd() + '/routes/auth-routes');
 var passportSetup = require(process.cwd() + '/config/passport-setup');
 
 var app = express(); //instantiate express object
-require('dotenv').config();
 
 app.use('/auth', authRoutes);
 
