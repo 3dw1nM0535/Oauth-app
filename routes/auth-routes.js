@@ -1,4 +1,5 @@
 var routes = require('express').Router(); //instantiate Router object
+var passport = require('passport');
 
 //Auth login
 routes.get('/login', function (req, res) {
@@ -12,9 +13,7 @@ routes.get('/logout', function (req, res) {
 });
 
 //Auth/google route handler
-routes.get('/google', function (req, res) {
-  res.send('Logging in with google');
-});
+routes.get('/google', passport.authenticate('google', { scope: ['profile'] }));
 
 module.exports = routes;
 
